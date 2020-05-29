@@ -1,0 +1,15 @@
+name: 'Winch Scala'
+description: 'Crank the handle'
+inputs:
+  filename: 
+    description: 'Configuration filename'
+    required: false
+    default: 'winch.yml'
+runs:
+  using: 'docker'
+  image: "docker://winchci/scala-sbt:latest"
+  args:
+    - 'winch ci -f ${{ inputs.filename }}'
+branding:
+  icon: 'anchor'
+  color: 'purple'
