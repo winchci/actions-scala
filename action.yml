@@ -5,11 +5,15 @@ inputs:
     description: 'Configuration filename'
     required: false
     default: 'winch.yml'
+  command:
+    description: 'Command'
+    required: false
+    default: 'ci'
 runs:
   using: 'docker'
   image: "docker://winchci/scala-sbt:latest"
   args:
-    - 'winch ci -f ${{ inputs.filename }}'
+    - 'winch ${{ inputs.command }} -f ${{ inputs.filename }}'
 branding:
   icon: 'anchor'
   color: 'purple'
